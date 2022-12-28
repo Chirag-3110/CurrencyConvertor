@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {
-    View,Text, StyleSheet, Dimensions, TextInput,Image
+    View,Text, StyleSheet, Dimensions, TextInput,Image, ScrollView
 } from 'react-native';
 import CustomButton from '../Components/CustomButton';
 import firestore from '@react-native-firebase/firestore';
+import ExchangeChart from './Exchange';
 
 const {width,height}=Dimensions.get('window');
 
-const Convertor=({route})=>{
+const Convertor=({route,navigation})=>{
     const {currenctData}=route.params;
     var [first,setFirst]=useState(null);
     var [second,setSecond]=useState(null);
@@ -87,7 +88,7 @@ const Convertor=({route})=>{
         }
     }
     return(
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.titleView}>
                 <Text style={{color:"white",fontWeight:"bold",fontSize:30,textAlign:"left",width:width-60,}}>Convert Currency</Text>
             </View>
@@ -125,17 +126,19 @@ const Convertor=({route})=>{
                         onpress={()=>changeCurrency()}
                         background="rgba(120,124,255,1)"
                         titleColor="white"
+                        border="rgba(120,124,255,1)"
+                    />
+                    <ExchangeChart
+                        exchangeData={currenctData}
                     />
                 </View>
             }
-        </View>
+        </ScrollView>
     )
 }
 const styles=StyleSheet.create({
     container:{
         flex:1,
-        alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor:"white"
     },
     convertorContainer:{
@@ -148,6 +151,7 @@ const styles=StyleSheet.create({
         justifyContent:"space-around",
         elevation:10,
         shadowColor: 'rgba(120,124,255,1)',
+        alignSelf:"center"
     },
     inputBox:{
         backgroundColor:"#D0D0D0",
@@ -165,8 +169,7 @@ const styles=StyleSheet.create({
         shadowColor:"rgba(76,81,149,1)",
         padding:10,
         marginVertical:10,
-        position:"absolute",
-        top:0
+        alignSelf:"center"
     }
 })
 export default Convertor;

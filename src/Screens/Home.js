@@ -69,7 +69,7 @@ const HomeScreen=({navigation})=>{
       }
     }
     return (
-      <ScrollView style={[styles.container,{width:width}]}>
+      <View style={[styles.container,{width:width}]}>
         <View style={styles.titleView}>
           <Text style={{color:"white",fontWeight:"bold",fontSize:25,textAlign:"center",}}>Currency Convertor</Text>
         </View>
@@ -107,6 +107,7 @@ const HomeScreen=({navigation})=>{
             onpress={()=>moveToNext()}
             background="rgba(120,124,255,1)"
             titleColor="white"
+            border="rgba(120,124,255,1)"
           />
         </View>
         <ImageView
@@ -114,7 +115,7 @@ const HomeScreen=({navigation})=>{
           imageLink="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTykD5AoIAxzFcQYABckvSPyvg5BPXhP-vd-Q&usqp=CAU"
           onpress={()=>navigation.navigate("search")}
         />
-      </ScrollView>
+      </View>
     );
 }
 const styles=StyleSheet.create({

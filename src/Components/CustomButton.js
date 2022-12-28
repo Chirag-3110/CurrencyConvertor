@@ -7,7 +7,7 @@ const {width,height}=Dimensions.get('window');
 
 const CustomButton=(props)=>{
     return(
-        <TouchableOpacity style={[styles.buttonContaier,{backgroundColor:props.background}]}
+        <TouchableOpacity style={[styles.buttonContaier,{backgroundColor:props.background,borderColor:props.border}]}
             onPress={props.onpress}
         >
             <Text style={{color:props.titleColor,fontWeight:"bold",fontSize:20}}>{props.title}</Text>
@@ -23,7 +23,8 @@ const styles=StyleSheet.create({
         marginTop:10,
         borderRadius:10,
         zIndex:-1000,
-        alignSelf:"center"
+        alignSelf:"center",
+        borderWidth:2
     }
 })
 export default CustomButton;

@@ -50,6 +50,7 @@ const CurrencyDataCard=(props)=>{
                     onpress={()=>getItemValues()}
                     background="#7937F6"
                     titleColor="white"
+                    border="#7937F6"
                 />:null
             }
             
