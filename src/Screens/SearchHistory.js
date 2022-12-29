@@ -19,7 +19,11 @@ const SearchHistory=()=>{
     const getSearchHistoryData=async()=>{
         setRefreshing(true);
         const value = await AsyncStorage.getItem('local_searched_data')
-        setSearchedData(JSON.parse(value))
+        if(value===null){
+          setSearchedData([])
+        }else{
+          setSearchedData(JSON.parse(value))
+        }
         setRefreshing(false);
     }
     return (
